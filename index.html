@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5b77d">
+<title>رحلتي مع حرفَي ز وس</title>
+<style>
+:root{--orange:#e8954f;--orange2:#f6bd86;--cream:#fff7eb;--beige:#f1dfc9;--ink:#30271f;--muted:#76695d;--green:#4f8a67;--greenbg:#e2f2e4;--red:#b85d4e;--redbg:#fbe6e1;--line:#ead4bc;--white:#fffdf9;--gold:#e4b84e}
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,"Arial",sans-serif;color:var(--ink);background:radial-gradient(circle at top left,#fffdf7 0,#fff7eb 35%,#f2dfc9 100%);min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;border-radius:15px;padding:12px 15px;transition:transform .12s,filter .12s,background .12s}
+button:active{transform:scale(.97)}button:focus-visible{outline:3px solid #648c70;outline-offset:3px}
+button:disabled{opacity:.55;cursor:not-allowed}
+header{padding:22px 14px 18px;text-align:center;background:linear-gradient(120deg,#f2a866,#f8d9b5 62%,#fff4e4);border-bottom:3px solid #e7c09a;position:relative;overflow:hidden}
+header:after{content:"✦";position:absolute;left:7%;top:12px;font-size:36px;color:#fff8e8;opacity:.9}
+header:before{content:"✦";position:absolute;right:8%;bottom:12px;font-size:24px;color:#fff8e8}
+.brand{font-size:14px;letter-spacing:1px;font-weight:bold;color:#75451f}
+h1{font-size:clamp(25px,5vw,39px);margin:7px 0 5px;line-height:1.5}
+header p{margin:0;line-height:1.9}
+main{width:min(100%,1000px);margin:auto;padding:14px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:8px 0;color:var(--muted);font-size:14px}
+.progress{height:10px;background:#e8d5c1;border-radius:99px;overflow:hidden;flex:1}
+#progressBar{height:100%;width:0;background:linear-gradient(90deg,#e58e46,#5d9b72);transition:width .3s}
+nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:15px 0}
+.tab{background:#fffaf3;border:1px solid var(--line);font-weight:bold;color:#594638;padding:11px 6px;font-size:14px}
+.tab.active{background:var(--ink);color:white;border-color:var(--ink)}
+.page{animation:appear .22s ease}@keyframes appear{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.card{background:rgba(255,253,249,.96);border:1px solid var(--line);border-radius:23px;padding:clamp(15px,3.5vw,27px);margin-bottom:15px;box-shadow:0 7px 22px #7250340c}
+h2{font-size:clamp(20px,4vw,27px);margin:0 0 12px}
+h3{font-size:18px;margin:18px 0 10px}
+p{line-height:1.9}
+.center{text-align:center}.muted{color:var(--muted);line-height:1.9}.small{font-size:13px}
+.hidden{display:none!important}
+.row{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.letter-btn{background:linear-gradient(145deg,#fff1dc,#f9dfc6);border:2px solid #edc59e;color:#392d23;font-size:clamp(47px,10vw,67px);height:115px;display:flex;align-items:center;justify-content:center}
+.letter-btn:nth-child(even){background:linear-gradient(145deg,#fff8f1,#f6dfdc)}
+.big-letter{font-size:clamp(90px,20vw,130px);line-height:1.2;margin:0;color:#a95b2d}
+.sound{background:var(--ink);color:white;font-weight:bold}
+.primary{background:linear-gradient(120deg,#d77d36,#efa85f);color:white;font-weight:bold}
+.soft{background:#f8e8d6;color:#62462f;border:1px solid #e9c9a6}
+.green{background:var(--greenbg);color:#2d6841;border:1px solid #b9ddc1}
+.red{background:var(--redbg);color:#91473b;border:1px solid #efc5bc}
+.badge{display:inline-flex;align-items:center;gap:5px;background:#fff0d5;border:1px solid #efd0a6;border-radius:99px;padding:7px 12px;font-size:13px;font-weight:bold}
+.letters{display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin:16px 0}
+.word-card{display:flex;flex-direction:column;align-items:center;gap:7px;background:#fff4e4;border:1px solid #edd4b4;border-radius:17px;padding:14px;min-width:125px}
+.word-emoji{font-size:45px}.word-ar{font-size:27px;font-weight:bold}.word-caption{font-size:13px;color:var(--muted)}
+.sound-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.sound-card{background:#fff0dd;border:1px solid #e9c8a3;display:flex;flex-direction:column;align-items:center;gap:5px;padding:13px 5px;color:#493528}
+.sound-card b{font-size:32px}.sound-card small{font-size:12px}
+.instruction{background:#fff4df;border-right:5px solid var(--orange);padding:12px 14px;border-radius:12px;line-height:1.9;margin:12px 0}
+.feedback{min-height:31px;font-weight:bold;line-height:1.8;margin:10px 0;color:var(--green)}
+.choice-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:18px 0}
+.choice{min-width:67px;min-height:67px;font-size:35px;background:#fff1dc;border:2px solid #edcfaa;color:var(--ink)}
+.choice.correct{background:var(--greenbg);border-color:#70ae80}
+.choice.wrong{background:var(--redbg);border-color:#d48b7c}
+.answer-img{min-width:120px;min-height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:17px;background:#fff2df;border:2px solid #edd0ae}
+.answer-img .emoji{font-size:40px}
+#writingCanvas{display:block;width:100%;height:260px;touch-action:none;background:#fffdf8;border:2px dashed #d8b48f;border-radius:16px;margin:14px 0}
+.write-tools{display:flex;flex-wrap:wrap;gap:8px}.write-tools button{flex:1;min-width:145px}
+.stage-dots{display:flex;justify-content:center;gap:7px;margin:12px}
+.stage-dots span{width:9px;height:9px;border-radius:50%;background:#e6d3bf}.stage-dots span.on{background:var(--orange)}
+.star{color:#b17b13;font-size:25px;letter-spacing:2px}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}
+.metric{background:#fff4e5;border:1px solid #ecd5b8;border-radius:14px;padding:12px 5px}
+.metric strong{display:block;font-size:25px}.metric span{font-size:12px;color:var(--muted)}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:13px}
+@media(max-width:520px){main{padding:10px}nav{grid-template-columns:repeat(2,minmax(0,1fr))}.tab{font-size:13px}.card{border-radius:18px}.sound-grid{gap:6px}.sound-card{padding:10px 3px}.metric-grid{gap:5px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">مَرْحَبًا بِالْمُبْدِعِ الصَّغِيرِ</div>
+  <h1>رِحْلَتِي مَعَ حَرْفَي ز وَس</h1>
+  <p>أَسْمَعُ • أَكْتَشِفُ • أَقْرَأُ • أَكْتُبُ • أَلْعَبُ</p>
+</header>
+<main>
+  <div class="topline"><span id="stageLabel">المحطة ١ من ٧</span><div class="progress"><div id="progressBar"></div></div><span id="starCount">⭐ ٠</span></div>
+  <nav id="tabs">
+    <button class="tab active" data-page="learn">١. أكتشف</button>
+    <button class="tab" data-page="sounds">٢. الحركات والمدود</button>
+    <button class="tab" data-page="words">٣. الكلمات والصور</button>
+    <button class="tab" data-page="write">٤. أكتب</button>
+    <button class="tab" data-page="find">٥. أصطاد الحرف</button>
+    <button class="tab" data-page="listen">٦. أسمع وأختار</button>
+    <button class="tab" data-page="position">٧. أين أسمعه؟</button>
+    <button class="tab" data-page="quiz">٨. أتأكد من تعلمي</button>
+    <button class="tab" data-page="results">⭐ إنجازاتي</button>
+  </nav>
+
+  <section id="learn" class="page">
+    <div class="card center">
+      <span class="badge">المحطة الأولى · أرى وأسمع</span>
+      <h2 style="margin-top:13px">أَتَعَرَّفُ إِلَى الْحَرْفِ</h2>
+      <p class="muted">اضغط على حرف ز أو س، ثم اضغط زر الاستماع لتسمع اسمه.</p>
+      <div class="letters">
+        <button class="letter-btn" onclick="showLetter('ز')">ز</button>
+        <button class="letter-btn" onclick="showLetter('س')">س</button>
+      </div>
+      <div style="background:#fff7ed;border-radius:20px;padding:17px">
+        <p class="big-letter" id="bigLetter">ز</p>
+        <h3 id="letterName">حَرْفُ الزَّاي</h3>
+        <button class="sound" onclick="speakLetter()">🔊 أَسْمَعُ اسْمَ الْحَرْفِ</button>
+        <p class="instruction" id="letterHint">للزاي نقطة فوقه، ويشبه حرف الراء.</p>
+        <div id="letterExample" class="word-card" style="max-width:220px;margin:auto">
+          <span class="word-emoji">🦒</span><span class="word-ar">زَرَافَة</span><span class="word-caption">تبدأ بحرف ز</span>
+          <button class="soft" onclick="speakCurrentWord()">🔊 أسمع الكلمة</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>أُلاحِظُ الْفَرْقَ</h2>
+      <div class="grid">
+        <div class="center"><button class="letter-btn" style="width:100%;height:88px" onclick="say('زَاي')">ز</button><p>نقطة فوقه</p></div>
+        <div class="center"><button class="letter-btn" style="width:100%;height:88px" onclick="say('رَاء')">ر</button><p>بلا نقطة</p></div>
+        <div class="center"><button class="letter-btn" style="width:100%;height:88px" onclick="say('سِين')">س</button><p>ثلاثة أسنان بلا نقاط</p></div>
+        <div class="center"><button class="letter-btn" style="width:100%;height:88px" onclick="say('شِين')">ش</button><p>ثلاث نقاط فوقه</p></div>
+      </div>
+      <button class="sound" onclick="say('لَاحِظْ: الزَّاي فَوْقَهُ نُقْطَة، وَالرَّاء بِلَا نُقْطَة. السِّين بِلَا نِقَاط، وَالشِّين فَوْقَهُ ثَلَاثُ نِقَاط.')">🔊 أَسْمَعُ التَّوْجِيهَ</button>
+    </div>
+    <div class="center"><button class="primary" onclick="go('sounds')">أَحْسَنْتَ! إِلَى الْمَحَطَّةِ التَّالِيَةِ ←</button></div>
+  </section>
+
+  <section id="sounds" class="page hidden">
+    <div class="card">
+      <span class="badge">المحطة الثانية · أقرأ</span>
+      <h2 style="margin-top:13px">أَقْرَأُ الْحَرْفَ بِالْحَرَكَاتِ وَالْمُدُودِ</h2>
+      <p class="muted">اضغط على البطاقة لتسمع المقطع. نقرأ الصوت القصير أولًا، ثم ننتبه إلى صوت المد.</p>
+      <h3>حَرْفُ الزَّاي</h3><div id="zSounds" class="sound-grid"></div>
+      <h3>حَرْفُ السِّين</h3><div id="sSounds" class="sound-grid"></div>
+      <div class="instruction">الفتحة: زَ / سَ · الضمة: زُ / سُ · الكسرة: زِ / سِ<br>المد بالألف: زَا / سَا · بالواو: زُو / سُو · بالياء: زِي / سِي.</div>
+      <p class="muted small">معلومة: نكتب «زَا» بألف المد، أما «آ» فهي ألف عليها مدّة، وليست طريقة كتابة كل مدّ بالألف.</p>
+      <div class="row"><button class="sound" onclick="say('زَ، زُ، زِ. زَا، زُو، زِي.')">🔊 أسمع الزاي</button><button class="sound" onclick="say('سَ، سُ، سِ. سَا، سُو، سِي.')">🔊 أسمع السين</button></div>
+    </div>
+    <div class="center"><button class="primary" onclick="go('words')">إِلَى الْكَلِمَاتِ وَالصُّوَرِ ←</button></div>
+  </section>
+
+  <section id="words" class="page hidden">
+    <div class="card center">
+      <span class="badge">المحطة الثالثة · أقرأ كلمة</span>
+      <h2 style="margin-top:13px">أَسْمَعُ الْكَلِمَةَ وَأُلاحِظُ حَرْفَهَا</h2>
+      <p class="muted">اضغط على الصورة أو زر الصوت، ثم لاحظ الحرف الملون.</p>
+      <div class="grid" id="wordCards"></div>
+      <div class="instruction">أَتَذَكَّرُ: أبحث عن شكل الحرف الذي تعلمته، وأسمع الكلمة ببطء.</div>
+      <button class="sound" onclick="say('اُنْظُرْ إِلَى الصُّوَرِ، وَاسْمَعْ اسْمَ كُلِّ صُورَة. هَلْ تَسْمَعُ ز أَمْ س فِي بِدَايَةِ الْكَلِمَةِ؟')">🔊 أَسْمَعُ التَّعْلِيمَاتِ</button>
+    </div>
+    <div class="center"><button class="primary" onclick="go('write')">حَانَ وَقْتُ الْكِتَابَةِ ←</button></div>
+  </section>
+
+  <section id="write" class="page hidden">
+    <div class="card center">
+      <span class="badge">المحطة الرابعة · أكتب</span>
+      <h2 style="margin-top:13px">أَكْتُبُ الْحَرْفَ بِإِصْبَعِي أَوْ قَلَمِي</h2>
+      <p class="muted">اختر حرفًا، ثم تتبع النموذج. عندما تنتهي من المحاولة، انتقل إلى الكتابة الحرة دون نموذج.</p>
+      <div class="row"><button class="soft" onclick="setWritingLetter('ز')">أتدرب على ز</button><button class="soft" onclick="setWritingLetter('س')">أتدرب على س</button></div>
+      <div class="stage-dots"><span id="dot1" class="on"></span><span id="dot2"></span></div>
+      <p id="writePrompt" class="question">المرحلة ١: تَتَبَّعْ حَرْفَ ز</p>
+      <canvas id="writingCanvas" aria-label="مساحة كتابة الحرف بالإصبع أو القلم"></canvas>
+      <div class="write-tools"><button class="soft" onclick="clearCanvas()">↻ أُعِيدُ الْمُحَاوَلَةَ</button><button class="primary" onclick="nextWriting()">✓ أَنْتَقِلُ إِلَى الْمَرْحَلَةِ التَّالِيَةِ</button></div>
+      <p id="writeFeedback" class="feedback" aria-live="polite"></p>
+      <p class="small muted">هذه المساحة تساعد على التدريب، لكنها لا تصحح شكل الحرف تلقائيًا. اطلب من المعلم أو ولي الأمر ملاحظة اتجاه الكتابة وشكل الحرف.</p>
+    </div>
+    <div class="center"><button class="primary" onclick="go('find')">أَنَا مُسْتَعِدٌّ لِلْعِبَةِ ←</button></div>
+  </section>
+
+  <section id="find" class="page hidden">
+    <div class="card center">
+      <span class="badge">المحطة الخامسة · أصطاد الحرف</span>
+      <h2 style="margin-top:13px">أَصْطادُ الْحَرْفَ الْمَطْلُوبَ</h2>
+      <p class="muted">اسمع السؤال، ثم اضغط على كل حرف مطلوب. بعض الحروف تشبهه، فانتبه!</p>
+      <p class="question" id="findQuestion">أَيْنَ حَرْفُ الزَّاي؟</p>
+      <button class="sound" onclick="speakFindQuestion()">🔊 اِسْمَعِ السُّؤَالَ</button>
+      <div id="findChoices" class="choice-grid"></div>
+      <p id="findFeedback" class="feedback" aria-live="polite"></p>
+      <div class="row"><button class="primary" onclick="checkFind()">أَتَأَكَّدُ مِنْ إِجَابَتِي</button><button class="soft" onclick="newFind()">سؤال جديد ↻</button></div>
+    </div>
+  </section>
+
+  <section id="listen" class="page hidden">
+    <div class="card center">
+      <span class="badge">المحطة السادسة · أسمع وأختار</span>
+      <h2 style="margin-top:13px">أَسْمَعُ صَوْتَ الْحَرْفِ ثُمَّ أَخْتَارُهُ</h2>
+      <p class="muted">لن يظهر الحرف في السؤال أولًا. استمع ثم اختر الإجابة الصحيحة.</p>
+      <button class="sound" onclick="playListenQuestion()">🔊 اِسْمَعِ الصَّوْتَ</button>
+      <div id="listenChoices" class="choice-grid"></div>
+      <p id="listenFeedback" class="feedback" aria-live="polite"></p>
+      <button class="primary" onclick="newListen()">سُؤَالٌ جَدِيدٌ ←</button>
+    </div>
+  </section>
+
+  <section id="position" class="page hidden">
+    <div class="card center">
+      <span class="badge">المحطة السابعة · أكتشف مكان الحرف</span>
+      <h2 style="margin-top:13px">أَيْنَ أَسْمَعُ الْحَرْفَ فِي الْكَلِمَةِ؟</h2>
+      <p class="muted">اسمع الكلمة، ثم اختر موضع الحرف: أول الكلمة أو وسطها أو آخرها.</p>
+      <div id="positionWord" class="word-card" style="max-width:240px;margin:16px auto">
+        <span id="positionEmoji" class="word-emoji">🌹</span><span id="positionWordText" class="word-ar">زَهْرَة</span>
+        <button class="soft" onclick="speakPositionWord()">🔊 أسمع الكلمة</button>
+      </div>
+      <button class="sound" onclick="speakPositionQuestion()">🔊 اِسْمَعِ السُّؤَالَ</button>
+      <div id="positionChoices" class="choice-grid">
+        <button class="choice" onclick="answerPosition('أول الكلمة')">أَوَّلُ الْكَلِمَةِ</button>
+        <button class="choice" onclick="answerPosition('وسط الكلمة')">وَسَطُ الْكَلِمَةِ</button>
+        <button class="choice" onclick="answerPosition('آخر الكلمة')">آخِرُ الْكَلِمَةِ</button>
+      </div>
+      <p id="positionFeedback" class="feedback" aria-live="polite"></p>
+      <button class="primary" onclick="newPosition()">كَلِمَةٌ جَدِيدَةٌ ←</button>
+    </div>
+  </section>
+
+  <section id="quiz" class="page hidden">
+    <div class="card center">
+      <span class="badge">المحطة الثامنة · تقويم بسيط</span>
+      <h2 style="margin-top:13px">أَتَأَكَّدُ مِنْ تَعَلُّمِي</h2>
+      <p class="muted">أجب بهدوء. إذا أخطأت، ستظهر لك الإجابة الصحيحة لتتعلم منها.</p>
+      <p id="quizCount" class="badge">السؤال ١</p>
+      <p id="quizQuestion" class="question"></p>
+      <button class="sound" onclick="speakQuizQuestion()">🔊 اِسْمَعِ السُّؤَالَ</button>
+      <div id="quizChoices" class="choice-grid"></div>
+      <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+      <button id="quizNext" class="primary hidden" onclick="nextQuiz()">السُّؤَالُ التَّالِي ←</button>
+      <div id="quizResult" class="hidden">
+        <div class="star">★ ★ ★</div><h3 id="finalScore"></h3><p id="resultAdvice"></p>
+        <button class="primary" onclick="startQuiz()">أُعِيدُ الِاخْتِبَارَ</button>
+        <button class="soft" onclick="go('results')">أرى إنجازاتي</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="page hidden">
+    <div class="card center">
+      <span class="badge">إنجازاتي</span><h2 style="margin-top:13px">أَنَا أَفْخَرُ بِمُحَاوَلَاتِي!</h2>
+      <div class="star" id="resultStars">★</div>
+      <div class="metric-grid">
+        <div class="metric"><strong id="metricStars">٠</strong><span>نجوم جمعتها</span></div>
+        <div class="metric"><strong id="metricCorrect">٠</strong><span>إجابات صحيحة</span></div>
+        <div class="metric"><strong id="metricAttempts">٠</strong><span>محاولات تدريب</span></div>
+      </div>
+      <p id="progressMessage" class="instruction">ابدأ رحلتك، وكل محاولة تقربك من إتقان الحرفين.</p>
+      <h3>ماذا أتدرب عليه الآن؟</h3>
+      <div id="reviewList" class="muted"></div>
+      <div class="row"><button class="primary" onclick="go('learn')">أعود إلى الدرس</button><button class="soft" onclick="resetProgress()">إعادة النتائج</button></div>
+      <p class="small muted">تُحفظ النتائج على هذا الجهاز والمتصفح فقط، ولا تُرسل إلى الإنترنت.</p>
+    </div>
+  </section>
+</main>
+<footer>تَعَلُّمُ الْحُرُوفِ خُطْوَةٌ جَمِيلَةٌ كُلَّ يَوْمٍ 🌼</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const state={stars:0,correct:0,attempts:0,misses:{},findDone:new Set(),findTarget:'ز',listenTarget:'ز',position:null,quizIndex:0,quizScore:0,quizAnswered:false,writingLetter:'ز',drawingMode:'trace',drawing:false,hasDrawn:false};
+const examples={
+ 'ز':{name:'حَرْفُ الزَّاي',hint:'للزاي نقطة فوقه، ويشبه حرف الراء.',word:'زَرَافَة',emoji:'🦒'},
+ 'س':{name:'حَرْفُ السِّين',hint:'السين له ثلاثة أسنان، ولا توجد عليه نقاط.',word:'سَمَكَة',emoji:'🐟'}
+};
+const wordData=[
+ {word:'زَهْرَة',letter:'ز',pos:'أول الكلمة',emoji:'🌹',desc:'زهرة'},
+ {word:'زَرَافَة',letter:'ز',pos:'أول الكلمة',emoji:'🦒',desc:'زرافة'},
+ {word:'مَوْز',letter:'ز',pos:'آخر الكلمة',emoji:'🍌',desc:'موز'},
+ {word:'سَمَكَة',letter:'س',pos:'أول الكلمة',emoji:'🐟',desc:'سمكة'},
+ {word:'عَسَل',letter:'س',pos:'وسط الكلمة',emoji:'🍯',desc:'عسل'},
+ {word:'جَرَس',letter:'س',pos:'آخر الكلمة',emoji:'🔔',desc:'جرس'}
+];
+
+/* ====== النطق المحسّن ====== */
+function safeSpeak(text){
+  if(!('speechSynthesis' in window)){
+    alert('النطق الصوتي غير متاح في هذا المتصفح.');
+    return;
+  }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'ar-SA';
+  u.rate = 0.72;
+  u.pitch = 1.0;
+  u.volume = 1;
+  const voices = speechSynthesis.getVoices();
+  const arabicVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('ar'));
+  const preferred =
+    arabicVoices.find(v => v.lang.toLowerCase() === 'ar-sa') ||
+    arabicVoices.find(v => v.lang.toLowerCase() === 'ar-eg') ||
+    arabicVoices.find(v => v.name && /maged|hoda|naayf|amina|salma|laila/i.test(v.name)) ||
+    arabicVoices[0];
+  if(preferred) u.voice = preferred;
+  speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){
+  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+  speechSynthesis.getVoices();
+}
+function say(text){safeSpeak(text)}
+
+/* ====== الدرس ====== */
+function showLetter(letter){
+ $('bigLetter').textContent=letter;$('letterName').textContent=examples[letter].name;
+ $('letterHint').textContent=examples[letter].hint;
+ $('letterExample').querySelector('.word-emoji').textContent=examples[letter].emoji;
+ $('letterExample').querySelector('.word-ar').textContent=examples[letter].word;
+ $('letterExample').querySelector('.word-caption').textContent='تبدأ بحرف '+letter;
+ $('letterExample').querySelector('button').onclick=()=>say(examples[letter].word);
+ $('letterExample').dataset.letter=letter;
+}
+function speakLetter(){say($('bigLetter').textContent==='ز'?'زَاي':'سِين')}
+function speakCurrentWord(){say($('letterExample').querySelector('.word-ar').textContent)}
+
+function go(page){
+ document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+ $(page).classList.remove('hidden');
+ document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+ const idx=[...document.querySelectorAll('.tab')].findIndex(b=>b.dataset.page===page);
+ $('progressBar').style.width=((idx+1)/9*100)+'%';$('stageLabel').textContent='المحطة '+(idx+1)+' من ٩';
+ if(page==='write')setTimeout(resizeCanvas,30);
+ if(page==='results')renderResults();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+
+/* ====== التقدم ====== */
+function addAttempt(correct,skill){
+ state.attempts++;
+ if(correct){state.correct++;state.stars++;}else{state.misses[skill]=(state.misses[skill]||0)+1;}
+ $('starCount').textContent='⭐ '+state.stars;saveProgress();
+}
+function saveProgress(){try{localStorage.setItem('horoufZSProgress',JSON.stringify({stars:state.stars,correct:state.correct,attempts:state.attempts,misses:state.misses}));}catch(e){}}
+function loadProgress(){try{const x=JSON.parse(localStorage.getItem('horoufZSProgress')||'{}');state.stars=x.stars||0;state.correct=x.correct||0;state.attempts=x.attempts||0;state.misses=x.misses||{};$('starCount').textContent='⭐ '+state.stars;}catch(e){}}
+function shuffle(arr){return arr.map(v=>({v,sort:Math.random()})).sort((a,b)=>a.sort-b.sort).map(x=>x.v)}
+
+/* ====== المقاطع ====== */
+function makeSounds(){
+ const sounds=[['زَ','زَاي بِالْفَتْحَةِ'],['زُ','زَاي بِالضَّمَّةِ'],['زِ','زَاي بِالْكَسْرَةِ'],['زَا','زَاي بِالْمَدِّ بِالْأَلِفِ'],['زُو','زَاي بِالْمَدِّ بِالْوَاوِ'],['زِي','زَاي بِالْمَدِّ بِالْيَاءِ']];
+ const ss=[['سَ','سِين بِالْفَتْحَةِ'],['سُ','سِين بِالضَّمَّةِ'],['سِ','سِين بِالْكَسْرَةِ'],['سَا','سِين بِالْمَدِّ بِالْأَلِفِ'],['سُو','سِين بِالْمَدِّ بِالْوَاوِ'],['سِي','سِين بِالْمَدِّ بِالْيَاءِ']];
+ [['zSounds',sounds],['sSounds',ss]].forEach(([id,arr])=>{
+  $(id).innerHTML='';arr.forEach(([txt,audio])=>{const b=document.createElement('button');b.className='sound-card';b.innerHTML='<b>'+txt+'</b><small>🔊 استمع</small>';b.onclick=()=>say(audio);$(id).appendChild(b)});
+ });
+}
+
+/* ====== الكلمات ====== */
+function renderWords(){
+ const root=$('wordCards');root.innerHTML='';
+ wordData.forEach(w=>{
+  const b=document.createElement('button');b.className='word-card';b.innerHTML='<span class="word-emoji">'+w.emoji+'</span><span class="word-ar">'+highlightLetter(w.word,w.letter)+'</span><span class="word-caption">الحرف '+w.letter+' · '+w.pos+'</span><span>🔊 أسمع الكلمة</span>';
+  b.onclick=()=>say(w.word);root.appendChild(b);
+ });
+}
+function highlightLetter(word,letter){
+ const i=word.indexOf(letter);if(i<0)return word;
+ return word.slice(0,i)+'<span style="color:#c86e2d;text-decoration:underline;text-decoration-thickness:3px">'+letter+'</span>'+word.slice(i+1);
+}
+
+/* ====== الكتابة ====== */
+let canvas,ctx;
+function resizeCanvas(){
+ if(!canvas){canvas=$('writingCanvas');ctx=canvas.getContext('2d');canvas.addEventListener('pointerdown',startDraw);canvas.addEventListener('pointermove',draw);canvas.addEventListener('pointerup',stopDraw);canvas.addEventListener('pointercancel',stopDraw);canvas.addEventListener('pointerleave',stopDraw);}
+ const rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;
+ canvas.width=Math.round(rect.width*ratio);canvas.height=Math.round(rect.height*ratio);ctx=canvas.getContext('2d');ctx.setTransform(ratio,0,0,ratio,0,0);ctx.lineCap='round';ctx.lineJoin='round';ctx.lineWidth=5;ctx.strokeStyle='#45352a';drawGuide();
+}
+function drawGuide(){
+ if(!canvas||!ctx)return;const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);
+ ctx.textAlign='center';ctx.textBaseline='middle';
+ if(state.drawingMode==='trace'){ctx.font='bold 155px Tahoma,Arial';ctx.strokeStyle='#d8b99a';ctx.lineWidth=2;ctx.setLineDash([2,7]);ctx.strokeText(state.writingLetter,w/2,h/2+8);ctx.setLineDash([]);}
+ else{ctx.font='16px Tahoma,Arial';ctx.fillStyle='#c7b6a4';ctx.fillText('اكتب الحرف هنا',w/2,h/2);}
+ ctx.strokeStyle='#45352a';ctx.lineWidth=5;
+}
+function pos(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+let lastX=0,lastY=0;
+function startDraw(e){e.preventDefault();state.drawing=true;state.hasDrawn=true;canvas.setPointerCapture(e.pointerId);const p=pos(e);lastX=p.x;lastY=p.y;}
+function draw(e){if(!state.drawing)return;e.preventDefault();const p=pos(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;}
+function stopDraw(){state.drawing=false}
+function clearCanvas(){if(canvas)drawGuide();state.hasDrawn=false;$('writeFeedback').textContent='';}
+function setWritingLetter(l){state.writingLetter=l;state.drawingMode='trace';$('writePrompt').textContent='المرحلة ١: تَتَبَّعْ حَرْفَ '+l;$('dot1').classList.add('on');$('dot2').classList.remove('on');if(canvas)clearCanvas();}
+function nextWriting(){
+ if(!state.hasDrawn){$('writeFeedback').textContent='ابدأ بمحاولة الكتابة أولًا، ثم انتقل إلى المرحلة التالية.';say('اِبْدَأْ بِالْكِتَابَةِ أَوَّلًا');return}
+ if(state.drawingMode==='trace'){state.drawingMode='free';$('writePrompt').textContent='المرحلة ٢: اكتب حرف '+state.writingLetter+' وحدك';$('dot1').classList.remove('on');$('dot2').classList.add('on');drawGuide();state.hasDrawn=false;$('writeFeedback').textContent='أحسنتَ! اختفى النموذج. اكتب الحرف وحدك الآن.';say('أَحْسَنْتَ. اكْتُبِ الْحَرْفَ وَحْدَكَ الْآنَ');}
+ else{addAttempt(true,'الكتابة');$('writeFeedback').textContent='رائع! أنهيت محاولة الكتابة. تذكّر أن تراجع شكل الحرف مع معلمك.';say('رَائِع، وَاصِلِ التَّدْرِيبَ');clearCanvas();}
+}
+window.addEventListener('resize',()=>{if(!$('write').classList.contains('hidden'))resizeCanvas()});
+
+/* ====== صيد الحرف ====== */
+function newFind(){
+ state.findTarget=Math.random()<.5?'ز':'س';state.findDone=new Set();
+ $('findQuestion').textContent=state.findTarget==='ز'?'أَيْنَ كُلُّ حُرُوفِ الزَّاي؟':'أَيْنَ كُلُّ حُرُوفِ السِّين؟';
+ $('findFeedback').textContent='';const arr=shuffle(['ز','س','ر','ش','د','ز','س','ص','ر','ش']);
+ const root=$('findChoices');root.innerHTML='';
+ arr.forEach((ch,i)=>{const b=document.createElement('button');b.className='choice';b.textContent=ch;b.dataset.letter=ch;b.dataset.idx=i;b.onclick=()=>{
+  if(b.dataset.done)return;
+  if(ch===state.findTarget){b.classList.add('correct');b.dataset.done='1';state.findDone.add(i);$('findFeedback').textContent='أحسنتَ! وجدتَ حرفًا صحيحًا. تابع البحث.';say('أَحْسَنْتَ');}
+  else{b.classList.add('wrong');$('findFeedback').textContent='حاول مرة أخرى. انتبه إلى النقطة وشكل الحرف.';say('حَاوِلْ مَرَّةً أُخْرَى');setTimeout(()=>b.classList.remove('wrong'),650);}
+ };root.appendChild(b)});
+}
+function speakFindQuestion(){say(state.findTarget==='ز'?'أَيْنَ كُلُّ حُرُوفِ الزَّايِ؟':'أَيْنَ كُلُّ حُرُوفِ السِّينِ؟')}
+function checkFind(){
+ const all=[...$('findChoices').children],targets=all.filter(b=>b.dataset.letter===state.findTarget),found=targets.every(b=>b.dataset.done);
+ if(found){$('findFeedback').textContent='ممتاز! وجدتَ جميع الحروف المطلوبة.';addAttempt(true,'صيد الحرف');say('مُمْتَاز، وَجَدْتَ كُلَّ الْحُرُوفِ');}
+ else{$('findFeedback').textContent='ما زال هناك حرف أو أكثر. أكمل البحث ثم تحقق مرة أخرى.';say('وَاصِلِ الْبَحْثَ');}
+}
+
+/* ====== التمييز السمعي ====== */
+function playListenQuestion(){say(state.listenTarget==='ز'?'زَاي':'سِين')}
+function newListen(){
+ state.listenTarget=Math.random()<.5?'ز':'س';$('listenFeedback').textContent='';
+ const root=$('listenChoices');root.innerHTML='';
+ shuffle(['ز','س','ر','ش']).forEach(ch=>{const b=document.createElement('button');b.className='choice';b.textContent=ch;b.onclick=()=>{
+  const correct=ch===state.listenTarget;addAttempt(correct,'التمييز السمعي');
+  if(correct){b.classList.add('correct');$('listenFeedback').textContent='أحسنتَ! تعرفتَ إلى صوت الحرف.';say('أَحْسَنْتَ');}
+  else{$('listenFeedback').textContent='ليس هذا الحرف. استمع مرة أخرى وحاول.';say('اِسْتَمِعْ مَرَّةً أُخْرَى');}
+  [...root.children].forEach(x=>x.disabled=true);
+ };root.appendChild(b)});
+}
+
+/* ====== موضع الحرف ====== */
+let currentPositionWord=null,positionAnswered=false;
+function newPosition(){
+ currentPositionWord=wordData[Math.floor(Math.random()*wordData.length)];positionAnswered=false;
+ $('positionEmoji').textContent=currentPositionWord.emoji;$('positionWordText').textContent=currentPositionWord.word;
+ $('positionFeedback').textContent='';[...$('positionChoices').children].forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong')});
+}
+function speakPositionWord(){if(currentPositionWord)say(currentPositionWord.word)}
+function speakPositionQuestion(){
+ if(currentPositionWord){
+   const letterName=currentPositionWord.letter==='ز'?'الزَّايِ':'السِّينِ';
+   say('فِي كَلِمَةِ '+currentPositionWord.word+'، أَيْنَ حَرْفُ '+letterName+'؟');
+ }
+}
+function answerPosition(answer){
+ if(positionAnswered)return;positionAnswered=true;const correct=answer===currentPositionWord.pos;addAttempt(correct,'موضع الحرف');
+ [...$('positionChoices').children].forEach(b=>{b.disabled=true;if(b.textContent.includes(currentPositionWord.pos))b.classList.add('correct')});
+ if(correct){$('positionFeedback').textContent='إجابة صحيحة! أحسنتَ.';say('أَحْسَنْتَ');}
+ else{$('positionFeedback').textContent='حاول مجددًا في الكلمة التالية. الموضع الصحيح: '+currentPositionWord.pos;say('حَاوِلْ مَرَّةً أُخْرَى');}
+}
+
+/* ====== الاختبار ====== */
+const quiz=[
+ {q:'أَيُّ حَرْفٍ لَهُ نُقْطَةٌ فَوْقَهُ؟',a:'ز',c:['ز','ر','س','ش'],skill:'شكل الحرف'},
+ {q:'اِخْتَرْ حَرْفَ السِّينِ.',a:'س',c:['ش','س','ز','ر'],skill:'شكل الحرف'},
+ {q:'مَا الْحَرْفُ الْأَوَّلُ فِي كَلِمَةِ زَهْرَة؟',a:'ز',c:['س','ر','ز','ش'],skill:'الكلمات'},
+ {q:'مَا الْحَرْفُ الْأَوَّلُ فِي كَلِمَةِ سَمَكَة؟',a:'س',c:['ز','ش','س','ر'],skill:'الكلمات'},
+ {q:'أَيُّ حَرْفٍ يُشْبِهُ الرَّاءَ وَلَهُ نُقْطَةٌ فَوْقَهُ؟',a:'ز',c:['ر','ز','س','ش'],skill:'شكل الحرف'},
+ {q:'أَيُّ حَرْفٍ نَسْمَعُهُ فِي آخِرِ كَلِمَةِ مَوْز؟',a:'ز',c:['س','ز','ش','ر'],skill:'موضع الحرف'},
+ {q:'أَيُّ حَرْفٍ نَسْمَعُهُ فِي آخِرِ كَلِمَةِ جَرَس؟',a:'س',c:['ز','س','ش','ر'],skill:'موضع الحرف'},
+ {q:'اِخْتَرِ الْمَقْطَعَ الَّذِي فِيهِ سِينٌ بِالْفَتْحَةِ.',a:'سَ',c:['سُ','زَ','سَ','زِ'],skill:'الحركات'},
+ {q:'اِخْتَرِ الْمَقْطَعَ الَّذِي فِيهِ زَايٌ بِالْكَسْرَةِ.',a:'زِ',c:['زَ','سِ','زِ','سُ'],skill:'الحركات'},
+ {q:'مَا الْحَرْفُ الَّذِي بِلَا نِقَاطٍ وَلَهُ ثَلَاثَةُ أَسْنَانٍ؟',a:'س',c:['ش','ز','س','ر'],skill:'شكل الحرف'}
+];
+function startQuiz(){state.quizIndex=0;state.quizScore=0;state.quizAnswered=false;$('quizResult').classList.add('hidden');$('quizQuestion').classList.remove('hidden');$('quizChoices').classList.remove('hidden');$('quizNext').classList.add('hidden');renderQuiz();}
+function renderQuiz(){
+ state.quizAnswered=false;const q=quiz[state.quizIndex];$('quizCount').textContent='السؤال '+(state.quizIndex+1)+' من '+quiz.length;$('quizQuestion').textContent=q.q;$('quizFeedback').textContent='';$('quizNext').classList.add('hidden');$('quizChoices').innerHTML='';
+ shuffle([...q.c]).forEach(ch=>{const b=document.createElement('button');b.className='choice';b.textContent=ch;b.onclick=()=>{
+  if(state.quizAnswered)return;state.quizAnswered=true;const correct=ch===q.a;addAttempt(correct,q.skill);if(correct){state.quizScore++;b.classList.add('correct');$('quizFeedback').textContent='إجابة صحيحة! أحسنتَ.';say('أَحْسَنْتَ');}
+  else{$('quizFeedback').textContent='الإجابة الصحيحة هي: '+q.a+'. لا بأس، نتعلم بالمحاولة.';say('لَا بَأْس، نَتَعَلَّمُ بِالْمُحَاوَلَةِ');}
+  [...$('quizChoices').children].forEach(x=>{x.disabled=true;if(x.textContent===q.a)x.classList.add('correct')});
+  $('quizNext').classList.remove('hidden');$('quizNext').textContent=state.quizIndex===quiz.length-1?'أَرَى النَّتِيجَةَ':'السُّؤَالُ التَّالِي ←';
+ };$('quizChoices').appendChild(b)});
+}
+function speakQuizQuestion(){say(quiz[state.quizIndex].q)}
+function nextQuiz(){
+ if(!state.quizAnswered)return;
+ if(state.quizIndex<quiz.length-1){state.quizIndex++;renderQuiz();return}
+ $('quizQuestion').classList.add('hidden');$('quizChoices').classList.add('hidden');$('quizNext').classList.add('hidden');$('quizResult').classList.remove('hidden');
+ $('finalScore').textContent='نتيجتك: '+state.quizScore+' من '+quiz.length;
+ const ratio=state.quizScore/quiz.length;
+ $('resultAdvice').textContent=ratio>=.8?'ممتاز! أتقنتَ كثيرًا من المهارات. واصل القراءة والكتابة.':'عمل جيد! أعد المحطات التي تحتاج إلى تدريب، ثم جرّب الاختبار من جديد.';
+ $('quizFeedback').textContent='';saveProgress();say('نَتِيجَتُكَ '+state.quizScore+' مِنْ '+quiz.length);
+}
+
+/* ====== الإنجازات ====== */
+function renderResults(){
+ $('metricStars').textContent=state.stars;$('metricCorrect').textContent=state.correct;$('metricAttempts').textContent=state.attempts;
+ $('resultStars').textContent=state.stars>=10?'★ ★ ★':state.stars>=4?'★ ★':'★';
+ $('progressMessage').textContent=state.attempts===0?'ابدأ رحلتك، وكل محاولة تقربك من إتقان الحرفين.':'رائع! كل مرة تستمع وتكتب وتحاول، تتعلم شيئًا جديدًا.';
+ const misses=Object.entries(state.misses).sort((a,b)=>b[1]-a[1]);
+ $('reviewList').innerHTML=misses.length?misses.slice(0,4).map(([skill,n])=>'<p>• راجع: '+skill+' <span class="small">('+n+' محاولة غير صحيحة)</span></p>').join(''):'لا توجد أخطاء مسجلة بعد. جرّب الألعاب والاختبار لتحديد ما يحتاج إلى مراجعة.';
+}
+function resetProgress(){
+ if(!confirm('هل تريد إعادة ضبط نتائجك المحفوظة على هذا الجهاز؟'))return;
+ state.stars=0;state.correct=0;state.attempts=0;state.misses={};saveProgress();renderResults();$('starCount').textContent='⭐ ٠';
+}
+
+makeSounds();renderWords();loadProgress();showLetter('ز');newFind();newListen();newPosition();startQuiz();
+$('progressBar').style.width=(1/9*100)+'%';
+</script>
+</body>
+</html>
